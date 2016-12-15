@@ -1,0 +1,7 @@
+:local pingcount 5
+:local ipPerangkat1 192.168.7.1
+
+#ping perangkat
+:local pingresult1 [/ping $ipPerangkat1 count=$pingcount]
+
+:if ($pingresult1>3) do={/tool fetch url="http://192.168.10.2:8888/smfr/index.php/status/add/1/1"} else={/tool fetch url="http://192.168.10.2:8888/smfr/index.php/status/add/1/0"}
