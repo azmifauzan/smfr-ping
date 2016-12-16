@@ -2,8 +2,14 @@
 <?php //print_r($status["1"]); ?>
 <?php //echo $status[1][0]['status'] ?>
 
-<div class="box-body">
-<?php echo $map['html']; ?>
+<div class="judul">
+  <div class="container">
+    <h1>SMFR Dashboard</h1>
+  </div>
+</div>
+
+<div class="container">
+<?php echo $map['html']; ?><br/>
   <div class="table-responsive">
     <table class="table no-margin">
       <thead>

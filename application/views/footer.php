@@ -2,19 +2,18 @@
 </div><!-- /.content-wrapper -->
 
 <!-- Main Footer -->
-      <footer class="main-footer">
+      <br/><hr/><br/>
+      <footer class="footer">
         <!-- Default to the left -->
-        <strong>Copyright &copy; <?php echo date('Y'); ?> <a href="http://www.len.co.id">PT. Len Industri</a></strong>.<br/>
-		created by : <a href="http://azmifauzan.wordpress.com">Fauzan</a>
+        <div class="container" align="center">
+          <strong>Copyright &copy; <?php echo date('Y'); ?> <a href="http://www.len.co.id">PT. Len Industri</a></strong>.<br/>
+  		    <small>created by : <a href="http://azmifauzan.net">Fauzan</a></small><br/><br/>
+        </div>
       </footer>
-      
-      <div class="control-sidebar-bg"></div>
-    </div><!-- ./wrapper -->
 
     <!-- REQUIRED JS SCRIPTS -->
-
-    <script src="<?php echo base_url('adminlte/plugins/jQuery/jQuery-2.1.4.min.js'); ?>"></script>
-    <script src="<?php echo base_url('adminlte/bootstrap/js/bootstrap.min.js'); ?>"></script>
-    <script src="<?php echo base_url('adminlte/dist/js/app.min.js'); ?>"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="<?php echo base_url('js/bootstrap.min.js'); ?>"></script>
+    <?php if($title == "Dashboard") {echo $map['js'];} ?>
   </body>
 </html>

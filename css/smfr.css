@@ -1,0 +1,33 @@
+body{
+	padding-top: 40px;
+}
+
+.judul {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  margin-bottom: 20px;
+  color: #fff;
+  background-image: linear-gradient(to bottom,#324493 0,#788CB6 100%);
+}
+
+.ucp {
+  padding-top: 30px;
+  padding-bottom: 50px;
+  margin-bottom: 15px;
+  color: #fff;
+  background-image: linear-gradient(to bottom,#8C615A 0,#BA803F 100%);
+}
+
+.warna-samping{
+  color: #fff;
+  background-color: #e9eaea;
+}
+
+.geser-icon{
+  padding-right: 15px;
+}
+
+.geser-menu{
+  margin-left: 20px;
+  margin-right: 10px;
+}

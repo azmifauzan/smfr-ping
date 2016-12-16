@@ -39,6 +39,7 @@ class Dashboard extends CI_Controller
 		$data["perangkat"] = $perangkat;
 		$data["status"] = $st;
 		$data['map'] = $this->googlemaps->create_map();
+		$data['menu'] = "Beranda";
 		$this->load->view('dashboard_view',$data);
 	}
 }
