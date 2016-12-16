@@ -8,11 +8,24 @@ class Dashboard extends CI_Controller
 	}
 
 	public function index()
+	{		
+		$data['title'] = 'Dashboard';		
+		$perangkat = $this->dbm->getAllPerangkat();
+		$data["perangkat"] = $perangkat;
+		foreach ($perangkat->result() as $pr) {
+			$sta = $this->dbm->getStatusPerangkat($pr->id_perangkat);
+			$st[$pr->id_perangkat] = $sta;
+		}
+		$data["status"] = $st;
+		$data['menu'] = "Beranda";
+		$this->load->view('dashboard_view',$data);
+	}
+
+	public function showmap()
 	{
 		$this->load->library('googlemaps');
 		$this->googlemaps->initialize();
 		$perangkat = $this->dbm->getAllPerangkat();
-		$data['title'] = 'Dashboard';
 		foreach ($perangkat->result() as $pr) {
 			$sta = $this->dbm->getStatusPerangkat($pr->id_perangkat);
 			$marker["animation"] = "DROP";
@@ -35,11 +48,7 @@ class Dashboard extends CI_Controller
 			$this->googlemaps->add_marker($marker);
 			$st[$pr->id_perangkat] = $sta;
 		}
-		
-		$data["perangkat"] = $perangkat;
-		$data["status"] = $st;
 		$data['map'] = $this->googlemaps->create_map();
-		$data['menu'] = "Beranda";
-		$this->load->view('dashboard_view',$data);
+		$this->load->view('showmap_view',$data);
 	}
 }

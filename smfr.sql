@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.9
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2016 at 06:57 AM
--- Server version: 5.5.34
--- PHP Version: 5.4.22
+-- Generation Time: Dec 16, 2016 at 03:35 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `smfr`
@@ -23,15 +23,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ci_sessions`
+--
+
+CREATE TABLE `ci_sessions` (
+  `id` varchar(128) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `data` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ci_sessions`
+--
+
+--INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+--('20fb043d36f5b5cd2291581e2b410ea124a6b418', '::1', 1481855101, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438313835353130313b),
+--('ebc6c7adde41da87bdec88396f262fe2b3cf9a6d', '::1', 1481855292, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438313835353130313b);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `kota`
 --
 
-CREATE TABLE IF NOT EXISTS `kota` (
-  `id_kota` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `kota` (
+  `id_kota` int(11) NOT NULL,
   `nama_kota` varchar(255) NOT NULL,
-  `keterangan` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_kota`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `keterangan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kota`
@@ -46,16 +66,15 @@ INSERT INTO `kota` (`id_kota`, `nama_kota`, `keterangan`) VALUES
 -- Table structure for table `perangkat`
 --
 
-CREATE TABLE IF NOT EXISTS `perangkat` (
-  `id_perangkat` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `perangkat` (
+  `id_perangkat` int(11) NOT NULL,
   `id_kota` int(11) NOT NULL,
   `nama_perangkat` varchar(255) NOT NULL,
   `ip_address` varchar(25) NOT NULL,
   `latitude` varchar(25) NOT NULL,
   `longitude` varchar(25) NOT NULL,
-  `keterangan` varchar(255) NOT NULL,
-  PRIMARY KEY (`id_perangkat`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `keterangan` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `perangkat`
@@ -73,13 +92,12 @@ INSERT INTO `perangkat` (`id_perangkat`, `id_kota`, `nama_perangkat`, `ip_addres
 -- Table structure for table `status`
 --
 
-CREATE TABLE IF NOT EXISTS `status` (
-  `id_status` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `status` (
+  `id_status` int(11) NOT NULL,
   `id_perangkat` int(11) NOT NULL,
   `waktu` datetime NOT NULL,
-  `status` int(1) NOT NULL,
-  PRIMARY KEY (`id_status`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+  `status` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `status`
@@ -97,6 +115,53 @@ INSERT INTO `status` (`id_status`, `id_perangkat`, `waktu`, `status`) VALUES
 (9, 3, '2016-07-22 07:28:07', 0),
 (10, 2, '2016-07-22 09:55:07', 1);
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  ADD KEY `ci_sessions_timestamp` (`timestamp`);
+
+--
+-- Indexes for table `kota`
+--
+ALTER TABLE `kota`
+  ADD PRIMARY KEY (`id_kota`);
+
+--
+-- Indexes for table `perangkat`
+--
+ALTER TABLE `perangkat`
+  ADD PRIMARY KEY (`id_perangkat`);
+
+--
+-- Indexes for table `status`
+--
+ALTER TABLE `status`
+  ADD PRIMARY KEY (`id_status`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `kota`
+--
+ALTER TABLE `kota`
+  MODIFY `id_kota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `perangkat`
+--
+ALTER TABLE `perangkat`
+  MODIFY `id_perangkat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `status`
+--
+ALTER TABLE `status`
+  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -9,7 +9,22 @@
 </div>
 
 <div class="container">
-<?php echo $map['html']; ?><br/>
+<div class="row">
+<div class="col-md-9">
+<iframe height="470" width="850" style="border:none;" src="<?php echo site_url('dashboard/showmap'); ?>" name="rendermap" id="rendermap"></iframe>
+<?php //echo $map['html']; ?><br/><input type="button" name="test" value="test" onclick="testb()">
+<script type="text/javascript">
+  function testb()
+  {
+    //alert('asdf');
+    var iframe = document.getElementById("rendermap"); iframe.src = iframe.src;
+  }
+</script>
+</div>
+<div class="col-md-3">
+</div>
+
+<div class="row">
   <div class="table-responsive">
     <table class="table no-margin">
       <thead>
@@ -41,6 +56,7 @@
   	  <?php endforeach; ?>
       </tbody>
      </table>
+   </div>
    </div>
 </div>
 <?php $this->load->view('Footer'); ?>
