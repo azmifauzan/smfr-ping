@@ -45,11 +45,11 @@
             <li <?php if($menu == "Beranda") echo 'class="active"' ?>><a href="<?php echo base_url(); ?>">Dashboard</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-              <?php if($this->session->userdata('isLoginAdmin') == TRUE) : ?>
+              <?php if($this->session->userdata('isLogin') == TRUE) : ?>
               <li <?php if($title == 'Kota') echo 'class="active"'; ?>><a href="<?php echo site_url('kota'); ?>"><span>Kota</span></a></li>
         <li <?php if($title == 'Perangkat') echo 'class="active"'; ?>><a href="<?php echo site_url('perangkat'); ?>"><span>Perangkat</span></a></li>
               <?php endif; ?>
-            <li><?php if($this->session->userdata('isLoginAdmin') == TRUE) echo anchor('auth/logout','Logout'); else echo anchor('auth/login','Login'); ?></li>
+            <li <?php if($menu == "Login") echo 'class="active"' ?>><?php if($this->session->userdata('isLogin') == TRUE) echo anchor('auth/logout','Logout'); else echo anchor('auth/login','Login'); ?></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

@@ -4,14 +4,15 @@
 
 <div class="judul">
   <div class="container">
-    <h1>SMFR Dashboard</h1>
+    <h1>SMFR Ping Status</h1>
   </div>
 </div>
 
 <div class="container">
 <div class="row">
-<div class="col-md-9">
-<iframe height="470" width="850" style="border:none;" src="<?php echo site_url('dashboard/showmap'); ?>" name="rendermap" id="rendermap"></iframe>
+<div class="col-md-12">
+<iframe height="470" width="1150" style="border:none;" src="<?php echo site_url('dashboard/showmap'); ?>" name="rendermap" id="rendermap"></iframe>
+<!--
 <?php //echo $map['html']; ?><br/><input type="button" name="test" value="test" onclick="testb()">
 <script type="text/javascript">
   function testb()
@@ -20,9 +21,12 @@
     var iframe = document.getElementById("rendermap"); iframe.src = iframe.src;
   }
 </script>
+-->
 </div>
+<!--
 <div class="col-md-3">
 </div>
+-->
 
 <div class="row">
   <div class="table-responsive">

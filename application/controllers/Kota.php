@@ -9,7 +9,7 @@ class Kota extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        if($this->session->userdata('isLoginAdmin') != TRUE)
+        if($this->session->userdata('isLogin') != TRUE)
             redirect('dashboard');
         $this->load->model('Kota_model');
         
@@ -20,6 +20,7 @@ class Kota extends CI_Controller
      */
     function index()
     {
+        $data["menu"] = "Kota";
         $data['kota'] = $this->Kota_model->get_all_kota();
         $data['title'] = "Kota";
         $this->load->view('kota/index',$data);
@@ -30,6 +31,7 @@ class Kota extends CI_Controller
      */
     function add()
     {   
+        $data["menu"] = "Kota";
         $this->load->library('form_validation');
 
 		$this->form_validation->set_rules('nama_kota','Nama Kota','required');
@@ -56,6 +58,7 @@ class Kota extends CI_Controller
      */
     function edit($id_kota)
     {   
+        $data["menu"] = "Kota";
         // check if the kotum exists before trying to edit it
         $kotum = $this->Kota_model->get_kotum($id_kota);
         

@@ -8,7 +8,7 @@ class Perangkat extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        if($this->session->userdata('isLoginAdmin') != TRUE)
+        if($this->session->userdata('isLogin') != TRUE)
             redirect('dashboard');
         $this->load->model('Perangkat_model');
     } 
@@ -18,6 +18,7 @@ class Perangkat extends CI_Controller
      */
     function index()
     {
+        $data["menu"] = "Perangkat";
         $data['perangkat'] = $this->Perangkat_model->get_all_perangkat();
         $data["title"] = 'Perangkat';
         $this->load->view('perangkat/index',$data);
@@ -51,7 +52,7 @@ class Perangkat extends CI_Controller
         }
         else
         {
-
+            $data["menu"] = "Perangkat";
             $this->load->model('Kota_model');
             $data['all_kota'] = $this->Kota_model->get_all_kota();
             $data["title"] = 'Perangkat';
@@ -67,6 +68,7 @@ class Perangkat extends CI_Controller
     {   
         // check if the perangkat exists before trying to edit it
         $perangkat = $this->Perangkat_model->get_perangkat($id_perangkat);
+        $data["menu"] = "Perangkat";
         
         if(isset($perangkat['id_perangkat']))
         {

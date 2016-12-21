@@ -1,7 +1,16 @@
 <?php $this->load->view('header'); ?>
+<div class="ucp">
+  <div class="container">
+    <h1>Perangkat SMFR</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
 <div class="pull-right">
 	<a href="<?php echo site_url('perangkat/add'); ?>" class="btn btn-success">Add</a> 
-</div>
+</div><br/><br/>
 
 <table class="table table-striped table-bordered">
     <tr>
@@ -28,4 +37,7 @@
     </tr>
 	<?php endforeach; ?>
 </table>
+
+</div>
+</div>
 <?php $this->load->view('footer'); ?>

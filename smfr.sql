@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2016 at 03:35 AM
+-- Generation Time: Dec 21, 2016 at 04:32 AM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 7.0.13
 
@@ -37,9 +37,13 @@ CREATE TABLE `ci_sessions` (
 -- Dumping data for table `ci_sessions`
 --
 
---INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
---('20fb043d36f5b5cd2291581e2b410ea124a6b418', '::1', 1481855101, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438313835353130313b),
---('ebc6c7adde41da87bdec88396f262fe2b3cf9a6d', '::1', 1481855292, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438313835353130313b);
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+('ad80f17f9143c95a92550c3d74e7569a9f58726c', '::1', 1482289273, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438323238393237333b),
+('a7e7c4432e34d760749e0e9d5a9e71b4e2287e81', '::1', 1482289586, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438323238393538363b),
+('5c3a8eba16d4ce5482038234670f94f1ca8f75db', '::1', 1482290086, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438323239303038363b),
+('5014920de33eff632fece1d62f80939fb557df1a', '::1', 1482290549, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438323239303534393b757365726e616d657c733a353a2261646d696e223b69734c6f67696e7c623a313b),
+('a4d73f89b805022ca8774bc3908144eef9a86f4c', '::1', 1482290852, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438323239303835323b757365726e616d657c733a353a2261646d696e223b69734c6f67696e7c623a313b),
+('0ce8d9753f1fb4cd436ac3139764d8c6f8df4255', '::1', 1482291084, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438323239313035303b);
 
 -- --------------------------------------------------------
 
@@ -115,6 +119,26 @@ INSERT INTO `status` (`id_status`, `id_perangkat`, `waktu`, `status`) VALUES
 (9, 3, '2016-07-22 07:28:07', 0),
 (10, 2, '2016-07-22 09:55:07', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `username` varchar(15) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `last_login` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`username`, `password`, `email`, `last_login`) VALUES
+('admin', '15a3ee4d76896984d7aebe9c3d4d3a3d', 'admin@lensmfr.com', '2016-12-21 00:00:00');
+
 --
 -- Indexes for dumped tables
 --
@@ -142,6 +166,12 @@ ALTER TABLE `perangkat`
 --
 ALTER TABLE `status`
   ADD PRIMARY KEY (`id_status`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
